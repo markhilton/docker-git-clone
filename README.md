@@ -10,20 +10,22 @@ In case of push to deploy instead of waiting for the Docker container to be buil
 
 ## Environment variables
 
-*required*
+### required
 `REPO_LINK` - github or bitbucket repository SSH clone link
 
 It is also required to mount a volume where the repository will be cloned from local file system into container `/repository` folder.
 
 In case of private repositories you also have to mount deployment SSH key authorized to clone code repository
 
-*optional*
+### optional
 `TAG` - clone specified tag
+
 `BRANCH` - clone specified branch
 
 if cloning using repository username/password instead SSH deployment key, please provide `REPO_LINK` without leading `https://`
 
 `REPO_USER` - authorized user to clone requested repository
+
 `REPO_PASS` - authorized user password to clone requested repository
 
 
