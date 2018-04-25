@@ -20,7 +20,9 @@ In case of private repositories you also have to mount deployment SSH key author
 ### optional
 `TAG` - clone specified tag
 
-`BRANCH` - clone specified branch
+`BRANCH` - clone specified branch (defaults to master)
+
+`REPO_KEY` - RSA key filename (defaults to id_rsa)
 
 if cloning using repository username/password instead SSH deployment key, please provide `REPO_LINK` without leading `https://`
 
@@ -32,9 +34,9 @@ if cloning using repository username/password instead SSH deployment key, please
 ## Example run
 
 ```
-docker --rm run -ti \
+docker run --rm -ti \
     -v /path/to/clone/repository:/repository \
-    -v /path/to/authorized/id_rsa:/root/.ssh/id_rsa \
+    -v /path/to/authorized/id_rsa:/key:ro \
     -e REPO_LINK=crunchgeek/git-clone
     -e REPO_BRANCH=master
     -e REPO_TAG=1.0.0
